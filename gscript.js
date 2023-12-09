@@ -2,10 +2,12 @@ document.addEventListener("DOMContentLoaded", function() {
 	const scriptURL = "https://script.google.com/macros/s/AKfycby211BppK5QOi1OmGpPg_9P_rxmG7CX1AFHeeYa2ynzMsRmdQ-LkrgkPEPDwnjcN4d3Ng/exec";
 	const form = document.forms["submit-to-google-sheet"];
 	const notif = document.querySelector(".notif");
+	const progressBar = document.querySelector(".sendProgress");
 
 	form.addEventListener("submit", (e) => {
 		e.preventDefault();
 		//notif.classList.toggle("d-none");
+		progressBar.style.display = "block";
 
 		// Ekstrak nilai input 'nama' dan 'kode_relawan'
 		const namaValue = form.elements["nama"].value;
@@ -44,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			body: new FormData(form),
 		})
 			.then((response) => {
+				progressBar.style.display = "none";
 				form.reset();
 				alert("Data Terkirim");
 			})
