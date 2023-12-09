@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		const notifMessage = gender === "Laki-laki" ? "Laki-laki" : gender === "Perempuan" ? "Perempuan" : "NIK tidak valid";
 		// Tampilkan gender dalam notifikasi jika NIK valid
 		if (gender !== "NIK tidak valid") {
-			notif.classList.toggle("d-none");
+			//notif.classList.toggle("d-none");
 		}
 		if (gender === "NIK tidak valid") {
 			alert(gender);
@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 		})
 			.then((response) => {
 				form.reset();
+				alert("Data Terkirim");
 			})
 			.catch((error) => {
 				alert("Gagal");
